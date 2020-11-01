@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bocatasion.API.Services\Bocatasion.API.Services.csproj" />
+  </ItemGroup>
+
 
 </Project>
