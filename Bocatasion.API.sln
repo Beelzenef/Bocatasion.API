@@ -5,13 +5,18 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API", "Bocatasion.API\Bocatasion.API.csproj", "{26CE883F-7127-4DD8-AE74-BC844D9CDF88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Models", "Bocatasion.API.Models\Bocatasion.API.Models.csproj", "{CB983A32-DF73-43D8-ADFF-B1877F0203D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.Models", "Bocatasion.API.Models\Bocatasion.API.Models.csproj", "{CB983A32-DF73-43D8-ADFF-B1877F0203D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Services", "Bocatasion.API.Services\Bocatasion.API.Services.csproj", "{FD2024D1-D7C2-424E-A165-1B46A9AA379F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.Services", "Bocatasion.API.Services\Bocatasion.API.Services.csproj", "{FD2024D1-D7C2-424E-A165-1B46A9AA379F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Contracts", "Bocatasion.API.Contracts\Bocatasion.API.Contracts.csproj", "{DA2FDE3D-18E5-4C83-A3F2-A2EF3385CCE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.Contracts", "Bocatasion.API.Contracts\Bocatasion.API.Contracts.csproj", "{DA2FDE3D-18E5-4C83-A3F2-A2EF3385CCE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.QA", "Bocatasion.API.QA\Bocatasion.API.QA.csproj", "{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.QA", "Bocatasion.API.QA\Bocatasion.API.QA.csproj", "{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.Data", "Bocatasion.API.Data\Bocatasion.API.Data.csproj", "{FEBE9DDF-B3EA-415B-9FD1-84649CF12B8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Data.Contracts", "Bocatasion.API.Data.Contracts\Bocatasion.API.Data.Contracts.csproj", "{154BECE5-DE8A-48D8-A58B-6E06D334FBA3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Services.Contracts", "Bocatasion.API.Services.Contracts\Bocatasion.API.Services.Contracts.csproj", "{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}"
 EndProject
 Global
@@ -40,6 +45,14 @@ Global
 		{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEBE9DDF-B3EA-415B-9FD1-84649CF12B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEBE9DDF-B3EA-415B-9FD1-84649CF12B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEBE9DDF-B3EA-415B-9FD1-84649CF12B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEBE9DDF-B3EA-415B-9FD1-84649CF12B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154BECE5-DE8A-48D8-A58B-6E06D334FBA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154BECE5-DE8A-48D8-A58B-6E06D334FBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154BECE5-DE8A-48D8-A58B-6E06D334FBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154BECE5-DE8A-48D8-A58B-6E06D334FBA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}.Release|Any CPU.ActiveCfg = Release|Any CPU
