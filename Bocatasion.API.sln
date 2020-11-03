@@ -12,6 +12,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Contracts", "Bocatasion.API.Contracts\Bocatasion.API.Contracts.csproj", "{DA2FDE3D-18E5-4C83-A3F2-A2EF3385CCE9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.QA", "Bocatasion.API.QA\Bocatasion.API.QA.csproj", "{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Services.Contracts", "Bocatasion.API.Services.Contracts\Bocatasion.API.Services.Contracts.csproj", "{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +40,10 @@ Global
 		{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEB5AD89-8A9E-42B2-ABF5-92BD6705F424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

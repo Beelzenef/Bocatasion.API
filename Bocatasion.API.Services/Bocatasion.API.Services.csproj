@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Bocatasion.API.Contracts\Bocatasion.API.Contracts.csproj" />
     <ProjectReference Include="..\Bocatasion.API.Models\Bocatasion.API.Models.csproj" />
     <ProjectReference Include="..\Bocatasion.API.QA\Bocatasion.API.QA.csproj" />
+    <ProjectReference Include="..\Bocatasion.API.Services.Contracts\Bocatasion.API.Services.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

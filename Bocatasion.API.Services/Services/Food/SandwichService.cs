@@ -1,11 +1,12 @@
 ﻿using Bocatasion.API.Contracts.DTOs;
 using Bocatasion.API.QA;
+using Bocatasion.API.Services.Contracts;
 using Bocatasion.API.Services.Mappers;
 using System.Collections.Generic;
 
 namespace Bocatasion.API.Services
 {
-    public class SandwichService
+    public class SandwichService : ISandwichService
     {
         public SandwichService()
         {

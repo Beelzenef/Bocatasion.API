@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Bocatasion.API.Services;
+using Bocatasion.API.Services.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,7 @@ namespace Bocatasion.API
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
             });
+            services.AddTransient<ISandwichService, SandwichService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
