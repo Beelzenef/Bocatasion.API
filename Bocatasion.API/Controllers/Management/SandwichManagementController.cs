@@ -1,6 +1,7 @@
-﻿using Bocatasion.API.Services;
+﻿using Bocatasion.API.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Bocatasion.API.Controllers
 {
@@ -9,12 +10,13 @@ namespace Bocatasion.API.Controllers
     public class SandwichManagementController : ControllerBase
     {
         private readonly ILogger<SandwichManagementController> _logger;
-        private readonly SandwichService _sandwichService;
+        private readonly ISandwichService _sandwichService;
 
-        public SandwichManagementController(ILogger<SandwichManagementController> logger)
+        public SandwichManagementController(ILogger<SandwichManagementController> logger,
+            ISandwichService sandwichService)
         {
             _logger = logger;
-            _sandwichService = new SandwichService();
+            _sandwichService = sandwichService ?? throw new ArgumentNullException(nameof(sandwichService));
         }
 
         [HttpGet]
