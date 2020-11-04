@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Bocatasion.API.Data.Contracts\Bocatasion.API.Data.Contracts.csproj" />
     <ProjectReference Include="..\Bocatasion.API.Data\Bocatasion.API.Data.csproj" />
     <ProjectReference Include="..\Bocatasion.API.Services\Bocatasion.API.Services.csproj" />
