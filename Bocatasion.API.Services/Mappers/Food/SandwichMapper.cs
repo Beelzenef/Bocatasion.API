@@ -1,4 +1,5 @@
 ﻿using Bocatasion.API.Contracts.DTOs;
+using Bocatasion.API.Data.Contracts.Entities;
 using Bocatasion.API.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,28 @@ namespace Bocatasion.API.Services.Mappers
             return dto;
         }
 
-        public static IEnumerable<SandwichDto> MapToSandwichDtoList(List<SandwichModel> models)
+        public static List<SandwichDto> MapToSandwichDtoList(List<SandwichModel> models)
         {
-            return models.Select(MapToSandwichDto);
+            return models.Select(MapToSandwichDto).ToList();
+        }
+
+        public static SandwichModel MapToSandwichModel(Sandwich entity)
+        {
+            var model = new SandwichModel
+            {
+                Name = entity.Name,
+                Description = entity.Description,
+                Disabled = entity.Disabled,
+                ImageUrl = entity.ImageUrl,
+                Price = entity.Price
+            };
+
+            return model;
+        }
+
+        public static List<SandwichModel> MapToSandwichModelList(List<Sandwich> entities)
+        {
+            return entities.Select(MapToSandwichModel).ToList();
         }
     }
 }
