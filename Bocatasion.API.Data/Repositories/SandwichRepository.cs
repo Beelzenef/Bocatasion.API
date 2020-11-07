@@ -27,7 +27,9 @@ namespace Bocatasion.API.Bocatasion.API.Data.Repositories
 
         public Sandwich GetById(int entityId)
         {
-            throw new System.NotImplementedException();
+            if (entityId == 0) return null;
+
+            return _context.Sandwiches.Where(x => x.Id == entityId).FirstOrDefault();
         }
 
         public void Insert(Sandwich entity)

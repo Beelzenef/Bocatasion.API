@@ -10,8 +10,11 @@ namespace Bocatasion.API.Services.Mappers
     {
         public static SandwichDto MapToSandwichDto(SandwichModel model)
         {
+            if (model == null) return null;
+
             var dto = new SandwichDto
             {
+                Id = model.Id,
                 Name = model.Name,
                 Description = model.Description,
                 Disabled = model.Disabled,
@@ -24,13 +27,18 @@ namespace Bocatasion.API.Services.Mappers
 
         public static List<SandwichDto> MapToSandwichDtoList(List<SandwichModel> models)
         {
+            if (models == null || models.Count == 0) return null;
+
             return models.Select(MapToSandwichDto).ToList();
         }
 
         public static SandwichModel MapToSandwichModel(Sandwich entity)
         {
+            if (entity == null) return null;
+
             var model = new SandwichModel
             {
+                Id = entity.Id,
                 Name = entity.Name,
                 Description = entity.Description,
                 Disabled = entity.Disabled,
@@ -43,6 +51,8 @@ namespace Bocatasion.API.Services.Mappers
 
         public static List<SandwichModel> MapToSandwichModelList(List<Sandwich> entities)
         {
+            if (entities == null || entities.Count == 0) return null;
+
             return entities.Select(MapToSandwichModel).ToList();
         }
     }
