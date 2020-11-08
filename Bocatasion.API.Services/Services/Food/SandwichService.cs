@@ -27,5 +27,17 @@ namespace Bocatasion.API.Services
 
             return dtos;
         }
+
+        public SandwichDto GetSandwichById(int id)
+        {
+            if (id == 0) return null;
+
+            var data = _sandwichRepository.GetById(id);
+
+            var model = SandwichMapper.MapToSandwichModel(data);
+            var dto = SandwichMapper.MapToSandwichDto(model);
+
+            return dto;
+        }
     }
 }
