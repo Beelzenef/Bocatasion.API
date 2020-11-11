@@ -1,4 +1,5 @@
-﻿using Bocatasion.API.Services.Contracts;
+﻿using Bocatasion.API.Bocatasion.API.Contracts.DTOs.Food;
+using Bocatasion.API.Services.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -50,6 +51,15 @@ namespace Bocatasion.API.Controllers
             var sandwich = _sandwichService.GetSandwichById(id);
 
             return Ok(sandwich);
+        }
+
+        [HttpPost("[action]")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public IActionResult CreateSandwich([FromBody] SandwichCreatableDto sandwichCreatableDto)
+        {
+            var result = _sandwichService.CreateSandwich(sandwichCreatableDto);
+
+            return CreatedAtAction(nameof(GetSandwichById), new { id = result.Id }, result);
         }
     }
 }

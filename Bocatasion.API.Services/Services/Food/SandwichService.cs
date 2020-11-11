@@ -1,7 +1,8 @@
-﻿using Bocatasion.API.Bocatasion.API.Data.Contracts.Repositories;
-using Bocatasion.API.Contracts.DTOs;
+﻿using Bocatasion.API.Bocatasion.API.Contracts.DTOs.Food;
+using Bocatasion.API.Bocatasion.API.Data.Contracts.Repositories;
 using Bocatasion.API.Services.Contracts;
 using Bocatasion.API.Services.Mappers;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,27 @@ namespace Bocatasion.API.Services
         public SandwichService(ISandwichRepository sandwichRepository)
         {
             _sandwichRepository = sandwichRepository ?? throw new ArgumentNullException(nameof(sandwichRepository));
+        }
+
+        public SandwichDto CreateSandwich(SandwichCreatableDto creatableDto)
+        {
+            if (creatableDto == null) throw new ArgumentNullException(nameof(creatableDto));
+
+            var model = SandwichMapper.MapToSandwichModel(creatableDto);
+            var entity = SandwichMapper.MapToSandwichEntity(model);
+            try
+            {
+                _sandwichRepository.Insert(entity);
+                _sandwichRepository.Save();
+            }
+            catch (Exception ex)
+            {
+                throw new DbUpdateException("Error at inserting data");
+            }
+
+            var dto = SandwichMapper.MapToSandwichDto(entity);
+            return dto;
+
         }
 
         public IEnumerable<SandwichDto> GetAllSandwiches()

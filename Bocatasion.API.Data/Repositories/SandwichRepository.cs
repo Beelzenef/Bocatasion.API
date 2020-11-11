@@ -34,12 +34,12 @@ namespace Bocatasion.API.Bocatasion.API.Data.Repositories
 
         public void Insert(Sandwich entity)
         {
-            throw new System.NotImplementedException();
+            _context.Sandwiches.Add(entity);
         }
 
         public void Save()
         {
-            throw new System.NotImplementedException();
+            _context.SaveChanges();
         }
 
         public void Update(Sandwich entity)
