@@ -50,7 +50,10 @@ namespace Bocatasion.API
                         Url = new Uri("https://twitter.com/Beelzenef_"),
                     }
                 });
-                
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddDbContext<Context>(item =>
