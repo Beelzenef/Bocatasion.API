@@ -8,5 +8,6 @@ namespace Bocatasion.API.Services.Contracts
         IEnumerable<SandwichDto> GetAllSandwiches();
         SandwichDto GetSandwichById(int id);
         SandwichDto CreateSandwich(SandwichCreatableDto creatableDto);
+        void DeleteSandwich(int id);
     }
 }
