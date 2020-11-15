@@ -84,6 +84,8 @@ namespace Bocatasion.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult DeleteSandwich([Required] int id)
         {
+            _sandwichService.DeleteSandwich(id);
+
             return Ok();
         }
     }
