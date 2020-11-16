@@ -1,6 +1,7 @@
 using Bocatasion.API.Bocatasion.API.Data.Contracts.Repositories;
 using Bocatasion.API.Data.Contracts;
 using Bocatasion.API.Data.Contracts.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +18,15 @@ namespace Bocatasion.API.Bocatasion.API.Data.Repositories
 
         public void Delete(int entityId)
         {
-            throw new System.NotImplementedException();
+            if (entityId == 0) throw new ArgumentNullException(nameof(entityId));
+
+            var entityToDelete = GetById(entityId);
+            if (entityToDelete == null)
+            {
+                return;
+            }
+
+            _context.Sandwiches.Remove(entityToDelete);
         }
 
         public IEnumerable<Sandwich> GetAll()

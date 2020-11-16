@@ -39,6 +39,23 @@ namespace Bocatasion.API.Services
 
         }
 
+        public void DeleteSandwich(int id)
+        {
+            if (id == 0) throw new ArgumentNullException(nameof(id));
+
+            var existingSandwich = _sandwichRepository.GetById(id);
+            if (existingSandwich == null) return;
+            try
+            {
+                _sandwichRepository.Delete(id);
+                _sandwichRepository.Save();
+            }
+            catch (Exception e)
+            {
+                throw new DbUpdateException("Error at deleting data");
+            }
+        }
+
         public IEnumerable<SandwichDto> GetAllSandwiches()
         {
             var data = _sandwichRepository.GetAll().ToList();
