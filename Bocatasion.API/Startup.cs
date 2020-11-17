@@ -33,7 +33,7 @@ namespace Bocatasion.API
             services.AddControllers();
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                c.AddPolicy("AllowAll", options => options.AllowAnyOrigin().AllowAnyMethod());
             });
 
             services.AddSwaggerGen(c =>
@@ -80,7 +80,7 @@ namespace Bocatasion.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bocatasion.API V1");
             });
 
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors("AllowAll");
             app.UseHttpsRedirection();
 
             app.UseRouting();
