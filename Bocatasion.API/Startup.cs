@@ -33,7 +33,10 @@ namespace Bocatasion.API
             services.AddControllers();
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowAll", options => options.AllowAnyOrigin().AllowAnyMethod());
+                c.AddPolicy("AllowAll", options =>
+                    options.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader());
             });
 
             services.AddSwaggerGen(c =>
