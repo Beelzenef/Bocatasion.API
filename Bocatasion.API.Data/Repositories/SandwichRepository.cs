@@ -43,6 +43,8 @@ namespace Bocatasion.API.Bocatasion.API.Data.Repositories
 
         public void Insert(Sandwich entity)
         {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+
             _context.Sandwiches.Add(entity);
         }
 
