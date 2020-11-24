@@ -80,6 +80,10 @@ namespace Bocatasion.API.Controllers
             return CreatedAtAction(nameof(GetSandwichById), new { id = result.Id }, result);
         }
 
+        /// <summary>
+        /// Deletes a sandwich.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
         [HttpDelete("[action]/{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult DeleteSandwich([Required] int id)
@@ -87,6 +91,20 @@ namespace Bocatasion.API.Controllers
             _sandwichService.DeleteSandwich(id);
 
             return Ok();
+        }
+
+        /// <summary>
+        /// Updates a sandwich.
+        /// </summary>
+        /// <param name="sandwichUpdatableDto">The updatable with sandwich data.</param>
+        /// <returns>Operation has been successfull</returns>
+        [HttpPut("[action]")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public ActionResult<bool> UpdateSandwich([Required][FromBody] SandwichUpdatableDto sandwichUpdatableDto)
+        {
+            var result = _sandwichService.UpdateSandwich(sandwichUpdatableDto);
+
+            return result;
         }
     }
 }
