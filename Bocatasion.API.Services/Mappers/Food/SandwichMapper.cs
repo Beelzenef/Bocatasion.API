@@ -72,12 +72,24 @@ namespace Bocatasion.API.Services.Mappers
             return model;
         }
 
+        public static void MapUpdatesToEntity(Sandwich entity, SandwichUpdatableDto updatable)
+        {
+            if (entity == null || updatable == null) return;
+
+            entity.Name = updatable.Name;
+            entity.Description = updatable.Description;
+            entity.Disabled = updatable.Disabled;
+            entity.ImageUrl = updatable.ImageUrl;
+            entity.Price = updatable.Price;
+        }
+
         public static Sandwich MapToSandwichEntity(SandwichModel model)
         {
             if (model == null) return null;
 
             var entity = new Sandwich
             {
+                Id = model.Id,
                 Name = model.Name,
                 Description = model.Description,
                 Disabled = model.Disabled,

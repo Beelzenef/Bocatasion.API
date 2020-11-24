@@ -1,5 +1,6 @@
 ﻿using Bocatasion.API.Bocatasion.API.Contracts.DTOs.Food;
 using Bocatasion.API.Bocatasion.API.Data.Contracts.Repositories;
+using Bocatasion.API.Models;
 using Bocatasion.API.Services.Contracts;
 using Bocatasion.API.Services.Mappers;
 using Microsoft.EntityFrameworkCore;
@@ -70,13 +71,42 @@ namespace Bocatasion.API.Services
         public SandwichDto GetSandwichById(int id)
         {
             if (id == 0) return null;
-
             var data = _sandwichRepository.GetById(id);
+
+            if (data == null)
+            {
+                return null;
+            }
 
             var model = SandwichMapper.MapToSandwichModel(data);
             var dto = SandwichMapper.MapToSandwichDto(model);
 
             return dto;
+        }
+
+        public bool UpdateSandwich(SandwichUpdatableDto updatableDto)
+        {
+            if (updatableDto == null) throw new ArgumentNullException(nameof(updatableDto));
+
+            var entityToUpdate = _sandwichRepository.GetById(updatableDto.Id);
+
+            if (entityToUpdate == null)
+            {
+                return false;
+            }
+
+            SandwichMapper.MapUpdatesToEntity(entityToUpdate, updatableDto);
+            try
+            {
+                _sandwichRepository.Update(entityToUpdate);
+                _sandwichRepository.Save();
+            }
+            catch (Exception ex)
+            {
+                throw new DbUpdateException("Error at updating data");
+            }
+
+            return true;
         }
     }
 }

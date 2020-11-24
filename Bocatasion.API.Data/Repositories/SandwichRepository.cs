@@ -53,7 +53,9 @@ namespace Bocatasion.API.Bocatasion.API.Data.Repositories
 
         public void Update(Sandwich entity)
         {
-            throw new System.NotImplementedException();
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+
+            _context.Sandwiches.Update(entity);
         }
     }
 }

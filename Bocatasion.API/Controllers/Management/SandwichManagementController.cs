@@ -88,5 +88,19 @@ namespace Bocatasion.API.Controllers
 
             return Ok();
         }
+
+        /// <summary>
+        /// Updates a sandwich.
+        /// </summary>
+        /// <param name="sandwichUpdatableDto">The updatable with sandwich data.</param>
+        /// <returns>Operation has been successfull</returns>
+        [HttpPut("[action]")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public ActionResult<bool> UpdateSandwich([Required][FromBody] SandwichUpdatableDto sandwichUpdatableDto)
+        {
+            var result = _sandwichService.UpdateSandwich(sandwichUpdatableDto);
+
+            return result;
+        }
     }
 }
