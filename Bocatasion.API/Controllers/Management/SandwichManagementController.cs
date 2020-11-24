@@ -80,6 +80,10 @@ namespace Bocatasion.API.Controllers
             return CreatedAtAction(nameof(GetSandwichById), new { id = result.Id }, result);
         }
 
+        /// <summary>
+        /// Deletes a sandwich.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
         [HttpDelete("[action]/{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult DeleteSandwich([Required] int id)
