@@ -36,7 +36,7 @@ namespace Bocatasion.API.Bocatasion.API.Data.Repositories
 
         public Sandwich GetById(int entityId)
         {
-            if (entityId == 0) return null;
+            if (entityId == 0) throw new ArgumentNullException(nameof(entityId));
 
             return _context.Sandwiches.Where(x => x.Id == entityId).FirstOrDefault();
         }

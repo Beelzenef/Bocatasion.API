@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="31.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bocatasion.API.Data.Contracts\Bocatasion.API.Data.Contracts.csproj" />
     <ProjectReference Include="..\Bocatasion.API.Models\Bocatasion.API.Models.csproj" />
   </ItemGroup>
 
