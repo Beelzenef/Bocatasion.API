@@ -1,5 +1,9 @@
+trigger:
+  - main
+  - dev
+
 pool:
-  name: .NET Core build + test + report generator
+  vmImage: 'windows-latest'
 variables:
   BuildConfiguration: 'Debug'
 
