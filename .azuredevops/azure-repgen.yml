@@ -1,49 +1,38 @@
-# ASP.NET Core
-# Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
-- main
+ - main
 
 pool:
-  vmImage: 'windows-latest'
+   vmImage: 'windows-latest'
 
 variables:
-  BuildConfiguration: 'Release'
-  Parameters.RestoreBuildProjects: '**/*.csproj'
+   solution: '**/*.sln'
+   buildPlatform: 'Any CPU'
+   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
-  displayName: Restore
+- task: DotNetCoreInstaller@0
+  displayName: 'Installing .NET Core SDK...'
   inputs:
-    command: restore
-    projects: '$(Parameters.RestoreBuildProjects)'
+    version: 3.1.101
+
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Building $(buildConfiguration)...'
 
 - task: DotNetCoreCLI@2
-  displayName: Build
-  inputs:
-    projects: '$(Parameters.RestoreBuildProjects)'
-    arguments: '--configuration $(BuildConfiguration)'
-
-- task: DotNetCoreCLI@2
-  displayName: Test
+  displayName: 'Executing dotnet tests...'
   inputs:
     command: test
-    projects: '**/*[Tt]esting*/*.csproj'
-    arguments: '--configuration $(BuildConfiguration)  /p:CollectCoverage=true  /p:CoverletOutputFormat=cobertura   /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)\TestResults\Coverage\'
+    projects: '**/*Testing/*.csproj'
+    nobuild: true
 
-- task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
-  displayName: ReportGenerator
-  inputs:
-    reports: '$(Build.SourcesDirectory)/TestResults/Coverage/*cobertura.xml'
-    targetdir: '$(Build.SourcesDirectory)/TestResults/Coverage'
-    sourcedirs: '$(Build.SourcesDirectory)'
-    assemblyfilters: '-xunit*'
+- script: dotnet tool install -g |
+   dotnet-reportgenerator-globaltool reportgenerator -reports:$(Build.SourcesDirectory)\TestResults\Coverage\coverage.cobertura.xml - targetdir:$(Build.SourcesDirectory)\CodeCoverage -reporttypes:HtmlInline_AzurePipelines;Cobertura
+  displayName: 'Creating code coverage report...'
 
 - task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage results'
+  displayName: 'Publishing code coverage...'
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/TestResults/Coverage/*cobertura.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/TestResults/Coverage'
+    summaryFileLocation: '$(Build.SourcesDirectory)\CodeCoverage\Cobertura.xml'
+    reportDirectory: '$(Build.SourcesDirectory)\CodeCoverage'
