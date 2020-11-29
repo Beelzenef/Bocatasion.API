@@ -5,11 +5,13 @@ using Bocatasion.API.QA;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Xunit;
 
 namespace Bocatasion.API.Data.Testing
 {
+    [ExcludeFromCodeCoverage]
     public class SandwichRepositoryTests
     {
         private Context _mockedContext;

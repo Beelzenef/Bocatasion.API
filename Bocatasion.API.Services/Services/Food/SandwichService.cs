@@ -1,6 +1,5 @@
 ﻿using Bocatasion.API.Bocatasion.API.Contracts.DTOs.Food;
 using Bocatasion.API.Bocatasion.API.Data.Contracts.Repositories;
-using Bocatasion.API.Models;
 using Bocatasion.API.Services.Contracts;
 using Bocatasion.API.Services.Mappers;
 using Microsoft.EntityFrameworkCore;
