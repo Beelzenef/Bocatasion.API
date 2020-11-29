@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.Data.Contrac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.Services.Contracts", "Bocatasion.API.Services.Contracts\Bocatasion.API.Services.Contracts.csproj", "{6DB6CC0D-6D9E-4AA6-9833-CCD3B5109024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Data.Testing", "Bocatasion.API.Data.Testing\Bocatasion.API.Data.Testing.csproj", "{08BF9A10-F15D-4E39-BB08-03D65281A536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bocatasion.API.Data.Testing", "Bocatasion.API.Data.Testing\Bocatasion.API.Data.Testing.csproj", "{08BF9A10-F15D-4E39-BB08-03D65281A536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bocatasion.API.Services.Testing", "Bocatasion.API.Services.Testing\Bocatasion.API.Services.Testing.csproj", "{F1709C93-5834-44F0-8AEC-8058645245FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{08BF9A10-F15D-4E39-BB08-03D65281A536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08BF9A10-F15D-4E39-BB08-03D65281A536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08BF9A10-F15D-4E39-BB08-03D65281A536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1709C93-5834-44F0-8AEC-8058645245FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1709C93-5834-44F0-8AEC-8058645245FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1709C93-5834-44F0-8AEC-8058645245FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1709C93-5834-44F0-8AEC-8058645245FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
