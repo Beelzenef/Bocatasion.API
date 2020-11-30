@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ReportGenerator" Version="4.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Bocatasion.API.Contracts\Bocatasion.API.Contracts.csproj" />
     <ProjectReference Include="..\Bocatasion.API.Data.Contracts\Bocatasion.API.Data.Contracts.csproj" />
     <ProjectReference Include="..\Bocatasion.API.Models\Bocatasion.API.Models.csproj" />
