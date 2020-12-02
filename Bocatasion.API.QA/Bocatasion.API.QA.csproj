@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Bogus" Version="32.0.1" />
-    <PackageReference Include="ReportGenerator" Version="4.8.1" />
   </ItemGroup>
 
   <ItemGroup>
