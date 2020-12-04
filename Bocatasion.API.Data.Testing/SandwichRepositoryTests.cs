@@ -14,7 +14,7 @@ namespace Bocatasion.API.Data.Testing
     [ExcludeFromCodeCoverage]
     public class SandwichRepositoryTests
     {
-        private Context _mockedContext;
+        private readonly Context _mockedContext;
 
         public SandwichRepositoryTests()
         {
@@ -243,7 +243,7 @@ namespace Bocatasion.API.Data.Testing
             CleanUp();
         }
 
-        private Context GetMockContext()
+        private static Context GetMockContext()
         {
             var models = SandwichBuilder.BuildValidSandwichCollection();
 

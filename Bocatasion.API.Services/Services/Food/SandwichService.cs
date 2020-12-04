@@ -31,7 +31,7 @@ namespace Bocatasion.API.Services
             }
             catch (Exception ex)
             {
-                throw new DbUpdateException("Error at inserting data");
+                throw new DbUpdateException("Error at inserting data", ex);
             }
 
             var dto = SandwichMapper.MapToSandwichDto(entity);
@@ -50,9 +50,9 @@ namespace Bocatasion.API.Services
                 _sandwichRepository.Delete(id);
                 _sandwichRepository.Save();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new DbUpdateException("Error at deleting data");
+                throw new DbUpdateException("Error at deleting data", ex);
             }
         }
 
@@ -102,7 +102,7 @@ namespace Bocatasion.API.Services
             }
             catch (Exception ex)
             {
-                throw new DbUpdateException("Error at updating data");
+                throw new DbUpdateException("Error at updating data", ex);
             }
 
             return true;

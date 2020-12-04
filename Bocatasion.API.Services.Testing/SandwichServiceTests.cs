@@ -16,7 +16,8 @@ namespace Bocatasion.API.Services.Testing
     [ExcludeFromCodeCoverage]
     public class SandwichServiceTests
     {
-        private Mock<ISandwichRepository> repoMock;
+        private readonly Mock<ISandwichRepository> repoMock;
+
         public SandwichServiceTests()
         {
             repoMock = new Mock<ISandwichRepository>();
@@ -67,7 +68,6 @@ namespace Bocatasion.API.Services.Testing
         {
             // Arrange
             Sandwich data = SandwichBuilder.BuildValidSandwich(0);
-            int id = 0;
 
             repoMock.Setup(x => x.GetById(It.IsAny<int>()))
                 .Returns(data);

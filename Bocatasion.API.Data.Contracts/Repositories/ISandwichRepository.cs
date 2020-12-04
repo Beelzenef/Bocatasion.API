@@ -5,6 +5,6 @@ namespace Bocatasion.API.Bocatasion.API.Data.Contracts.Repositories
 {
     public interface ISandwichRepository : IGenericRepository<Sandwich>
     {
-        
+
     }
 }
