@@ -9,6 +9,28 @@ namespace Bocatasion.API.QA
 {
     public static class SandwichBuilder
     {
+        public static SandwichDto BuildValidSandwichDto()
+        {
+            Faker<SandwichDto> fake = new Faker<SandwichDto>()
+                .CustomInstantiator(_ => new SandwichDto())
+                .RuleFor(v => v.Id, f => f.Random.Int())
+                .RuleFor(v => v.Name, f => f.Random.String2(10))
+                .RuleFor(v => v.Description, f => f.Random.String2(20))
+                .RuleFor(v => v.Disabled, f => f.Random.Bool())
+                .RuleFor(v => v.ImageUrl, f => f.Internet.Url())
+                .RuleFor(v => v.Price, f => f.Random.Int());
+
+            return fake.Generate();
+        }
+
+        public static IEnumerable<SandwichDto> BuildValidSandwichDtoCollection(int? count = 3)
+        {
+            Faker faker = new Faker();
+            IEnumerable<SandwichDto> items = faker.Make(count.Value, () => BuildValidSandwichDto());
+
+            return items.ToList();
+        }
+
         public static SandwichModel BuildValidSandwichModel()
         {
             Faker<SandwichModel> fake = new Faker<SandwichModel>()
