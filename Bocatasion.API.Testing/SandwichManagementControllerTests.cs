@@ -6,7 +6,6 @@ using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
 using System.Diagnostics.CodeAnalysis;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Bocatasion.API.Testing
@@ -40,7 +39,6 @@ namespace Bocatasion.API.Testing
         public void GetAll_Success()
         {
             // Arrange        
-            int id = 1;
             var dtos = SandwichBuilder.BuildValidSandwichDtoCollection();
 
             Mock<ILogger<SandwichManagementController>> logger = new Mock<ILogger<SandwichManagementController>>(MockBehavior.Strict);
