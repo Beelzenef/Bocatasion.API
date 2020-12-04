@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Bocatasion.API.Data.Contracts.Entities;
+﻿using Bocatasion.API.Data.Contracts.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bocatasion.API.Data.Contracts
 {

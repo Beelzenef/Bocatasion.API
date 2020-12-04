@@ -35,7 +35,7 @@ namespace Bocatasion.API.QA
         {
             Faker<Sandwich> fake = new Faker<Sandwich>()
                 .CustomInstantiator(_ => new Sandwich())
-                .RuleFor(v => v.Id, f => id == 0 ? f.Random.Int(): id)
+                .RuleFor(v => v.Id, f => id == 0 ? f.Random.Int() : id)
                 .RuleFor(v => v.Name, f => f.Random.String2(10))
                 .RuleFor(v => v.Description, f => f.Random.String2(20))
                 .RuleFor(v => v.Disabled, f => f.Random.Bool())
