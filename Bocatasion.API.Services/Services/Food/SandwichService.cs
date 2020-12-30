@@ -1,5 +1,7 @@
 ﻿using Bocatasion.API.Bocatasion.API.Contracts.DTOs.Food;
 using Bocatasion.API.Bocatasion.API.Data.Contracts.Repositories;
+using Bocatasion.API.Contracts.DTOs.Food;
+using Bocatasion.API.Data.Contracts.Entities;
 using Bocatasion.API.Services.Contracts;
 using Bocatasion.API.Services.Mappers;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +18,47 @@ namespace Bocatasion.API.Services
         public SandwichService(ISandwichRepository sandwichRepository)
         {
             _sandwichRepository = sandwichRepository ?? throw new ArgumentNullException(nameof(sandwichRepository));
+        }
+
+        public IEnumerable<SandwichInfoDto> GetAllActiveSandwiches()
+        {
+            List<Sandwich> activeSandwiches = _sandwichRepository.GetAll()
+                .Where(x => !x.Disabled)
+                .ToList();
+
+            var sandwichModels = SandwichMapper.MapToSandwichModelList(activeSandwiches);
+            // check all data is full
+
+            var sandwichDtos = SandwichMapper.MapToSandwichInfoDtoList(sandwichModels);
+
+            return sandwichDtos;
+        }
+
+        public IEnumerable<SandwichDto> GetAllSandwiches()
+        {
+            var data = _sandwichRepository.GetAll().ToList();
+
+            var sandwichModels = SandwichMapper.MapToSandwichModelList(data);
+
+            var dtos = SandwichMapper.MapToSandwichDtoList(sandwichModels);
+
+            return dtos;
+        }
+
+        public SandwichDto GetSandwichById(int id)
+        {
+            if (id == 0) return null;
+            var data = _sandwichRepository.GetById(id);
+
+            if (data == null)
+            {
+                return null;
+            }
+
+            var model = SandwichMapper.MapToSandwichModel(data);
+            var dto = SandwichMapper.MapToSandwichDto(model);
+
+            return dto;
         }
 
         public SandwichDto CreateSandwich(SandwichCreatableDto creatableDto)
@@ -54,33 +97,6 @@ namespace Bocatasion.API.Services
             {
                 throw new DbUpdateException("Error at deleting data", ex);
             }
-        }
-
-        public IEnumerable<SandwichDto> GetAllSandwiches()
-        {
-            var data = _sandwichRepository.GetAll().ToList();
-
-            var sandwichModels = SandwichMapper.MapToSandwichModelList(data);
-
-            var dtos = SandwichMapper.MapToSandwichDtoList(sandwichModels);
-
-            return dtos;
-        }
-
-        public SandwichDto GetSandwichById(int id)
-        {
-            if (id == 0) return null;
-            var data = _sandwichRepository.GetById(id);
-
-            if (data == null)
-            {
-                return null;
-            }
-
-            var model = SandwichMapper.MapToSandwichModel(data);
-            var dto = SandwichMapper.MapToSandwichDto(model);
-
-            return dto;
         }
 
         public bool UpdateSandwich(SandwichUpdatableDto updatableDto)
